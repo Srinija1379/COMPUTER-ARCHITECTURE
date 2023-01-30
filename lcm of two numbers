@@ -1,0 +1,23 @@
+LXI H, 8000H   	
+F003	4E	
+MOV C, M	
+F004	06, 00	
+MVI B, 00H  	
+INX H   	
+MOV A, M	
+CMA	
+MOV E, A	
+MVI D, FFH  
+INX D   
+LXI H, 0000H   
+DAD B   	
+Add BC 
+JNC SKIP    		
+MOV A, H	
+ORA L   
+JZ EXIT	
+JMP LOOP    
+LHLD 8050H  	
+JMP NEXT    	
+LHLD 8050H  	
+HLT
